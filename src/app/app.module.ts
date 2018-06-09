@@ -4,7 +4,9 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
 import {HeaderComponent} from './header/header.component';
-import { RecipeComponent } from './recipe/recipe.component';
+import {RecipeComponent} from './recipe/recipe.component';
+import {RecipeService} from './recipe.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { RecipeComponent } from './recipe/recipe.component';
   imports: [
     BrowserModule,
     CustomMaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
-import {RECIPES} from '../assets/mock/recipes.mock';
+import {Component, OnInit} from '@angular/core';
+import {RecipeService} from './recipe.service';
+import {Recipe} from './model/recipe.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,13 @@ import {RECIPES} from '../assets/mock/recipes.mock';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  recipes = RECIPES;
+export class AppComponent implements OnInit {
+  $recipes: Observable<Recipe[]>;
+
+  constructor(private recipeService: RecipeService) {
+  }
+
+  ngOnInit(): void {
+    this.$recipes = this.recipeService.getRecipes();
+  }
 }
