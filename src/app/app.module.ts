@@ -4,11 +4,13 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
 import {HeaderComponent} from './header/header.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,

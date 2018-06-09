@@ -1,0 +1,27 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="recipe-header-image">
+      <img [src]="recipe.picture">
+    </div>
+    <mat-card-title>{{recipe.name}}</mat-card-title>
+    <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="recipe.picture" alt="Photo of the coktail">
+  <mat-card-content>
+    <p class="description">
+      {{recipe.description}}
+    </p>
+    <ul *ngIf="expanded">
+      <li *ngFor="let ingredient of recipe.ingredients">
+        {{ingredient.quantity}} {{ingredient.unit}} {{ingredient.name}}
+      </li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="toggleExpand()" [ngPlural]="expanded">
+      <ng-template ngPluralCase="=false">Voir plus</ng-template>
+      <ng-template ngPluralCase="=true">Voir moins</ng-template>
+    </button>
+    <button mat-raised-button color="primary">SHARE</button>
+  </mat-card-actions>
+</mat-card>
